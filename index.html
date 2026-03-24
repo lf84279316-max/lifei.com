@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="专业编码器、位移传感器、称重传感器供应商 | 欧美原厂直购 | 三语服务中/英/俄">
+    <title>Encoder & Sensor Expert | 编码器·位移·称重传感器</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1a2c3e;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        
+        /* Top Bar */
+        .top-bar {
+            background: #f5f7fa;
+            padding: 10px 0;
+            font-size: 0.85rem;
+            border-bottom: 1px solid #eef2f5;
+        }
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .contact-info a {
+            color: #1e6a7c;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        .contact-info i { margin-right: 6px; }
+        .lang-switch {
+            display: flex;
+            gap: 12px;
+        }
+        .lang-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            padding: 4px 8px;
+            border-radius: 30px;
+            transition: 0.2s;
+            color: #4a6272;
+        }
+        .lang-btn.active {
+            background: #1e6a7c;
+            color: white;
+        }
+        
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0b2f44, #1e6a7c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            font-weight: 500;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #2c4b5c;
+            transition: 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active { color: #1e6a7c; }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(120deg, #f5fafd 0%, #eef4f8 100%);
+            margin: 32px 0 48px;
+            border-radius: 40px;
+            padding: 56px 48px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+        .hero-content h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #0b2f44;
+        }
+        .hero-content p {
+            font-size: 1rem;
+            color: #3b677b;
+            margin-bottom: 28px;
+            max-width: 550px;
+        }
+        .btn-primary {
+            background: #1e6a7c;
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 48px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #1e6a7c;
+            color: #1e6a7c;
+            padding: 10px 28px;
+            border-radius: 48px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .hero-image {
+            background: #daeef5;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #1e6a7c;
+        }
+        
+        /* 产品分类标签 */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0 30px;
+            flex-wrap: wrap;
+        }
+        .cat-btn {
+            background: #f0f5f8;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+        .cat-btn.active {
+            background: #1e6a7c;
+            color: white;
+        }
+        
+        /* 产品网格 */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 30px 0 50px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid #eef2f5;
+            transition: 0.2s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: #cde3ec;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+        }
+        .product-img {
+            width: 100%;
+            aspect-ratio: 1 / 0.9;
+            object-fit: cover;
+            background: #f9fafb;
+        }
+        .product-info {
+            padding: 18px;
+        }
+        .product-info h4 {
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .product-spec {
+            font-size: 0.75rem;
+            color: #7c9aa8;
+            margin-bottom: 8px;
+        }
+        .product-price {
+            font-weight: 700;
+            color: #1e6a7c;
+            margin: 10px 0;
+        }
+        .btn-sm {
+            background: #f0f5f8;
+            border: none;
+            padding: 8px;
+            width: 100%;
+            border-radius: 40px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-sm:hover { background: #e2eef4; }
+        
+        /* 技术优势 */
+        .advantages {
+            background: #f9fdfe;
+            border-radius: 40px;
+            padding: 48px 40px;
+            margin: 56px 0;
+        }
+        .adv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 32px;
+            margin-top: 24px;
+        }
+        .adv-item { text-align: center; }
+        .adv-icon { font-size: 2.5rem; color: #1e6a7c; margin-bottom: 16px; }
+        
+        /* 询价表单 */
+        .contact-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            margin: 64px 0;
+        }
+        .contact-info-box {
+            flex: 1;
+            background: #f5fafd;
+            border-radius: 32px;
+            padding: 32px;
+        }
+        .contact-form-box {
+            flex: 1;
+            border: 1px solid #eef2f5;
+            border-radius: 32px;
+            padding: 32px;
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px 18px;
+            border: 1px solid #dbe8ef;
+            border-radius: 48px;
+            font-family: inherit;
+        }
+        .form-group textarea { border-radius: 24px; resize: vertical; }
+        .submit-btn {
+            background: #1e6a7c;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 48px;
+            width: 100%;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        footer {
+            background: #0b2f44;
+            color: #cddfe6;
+            padding: 40px 24px 32px;
+            margin-top: 40px;
+        }
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 32px;
+        }
+        @media (max-width: 780px) {
+            .hero { flex-direction: column; text-align: center; padding: 40px 24px; }
+            .navbar { flex-direction: column; align-items: stretch; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <div class="container">
+        <div class="contact-info">
+            <a href="mailto:84279316@qq.com"><i class="fas fa-envelope"></i> 84279316@qq.com</a>
+            <a href="tel:+8613632615269"><i class="fas fa-phone-alt"></i> 13632615269</a>
+            <span><i class="fas fa-clock"></i> 7x24小时 中/英/俄服务</span>
+        </div>
+        <div class="lang-switch">
+            <button class="lang-btn" data-lang="zh">中文</button>
+            <button class="lang-btn" data-lang="en">English</button>
+            <button class="lang-btn" data-lang="ru">Русский</button>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <nav class="navbar">
+        <div class="logo">SENSO<span style="color:#1e6a7c;">TECH</span><span style="font-size:0.9rem;"> 编码器·传感器专家</span></div>
+        <div class="nav-links">
+            <a href="#" class="active" data-key="nav_home">首页</a>
+            <a href="#" data-key="nav_encoder">编码器</a>
+            <a href="#" data-key="nav_displacement">位移传感器</a>
+            <a href="#" data-key="nav_loadcell">称重传感器</a>
+            <a href="#" data-key="nav_contact">联系我们</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1 id="hero_title">高精度编码器 & 传感器<br>工业自动化核心部件</h1>
+            <p id="hero_desc">专业供应增量/绝对式编码器、磁致伸缩位移传感器、高精度称重传感器。欧美原厂直购，提供选型支持与快速报价。</p>
+            <div>
+                <button class="btn-primary" id="quoteBtn"><i class="fas fa-file-invoice"></i> <span id="quote_btn_text">获取报价</span></button>
+                <button class="btn-outline" id="catalogBtn"><i class="fas fa-download"></i> <span id="catalog_btn_text">技术资料</span></button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <i class="fas fa-microchip"></i>
+        </div>
+    </div>
+
+    <!-- 产品分类切换按钮 -->
+    <div class="category-tabs" id="categoryTabs">
+        <button class="cat-btn active" data-cat="all" id="catAll">全部产品</button>
+        <button class="cat-btn" data-cat="encoder" id="catEncoder">编码器</button>
+        <button class="cat-btn" data-cat="displacement" id="catDisplacement">位移传感器</button>
+        <button class="cat-btn" data-cat="loadcell" id="catLoadcell">称重传感器</button>
+    </div>
+
+    <!-- 产品列表网格 -->
+    <div class="products-grid" id="productsGrid"></div>
+
+    <!-- 技术优势 -->
+    <div class="advantages">
+        <h2 style="font-size:1.8rem; text-align:center;" id="adv_title">为什么选择我们</h2>
+        <div class="adv-grid" id="advantagesGrid"></div>
+    </div>
+
+    <!-- 询价表单 -->
+    <div class="contact-section">
+        <div class="contact-info-box">
+            <h3 id="contact_title">📞 获取专业选型支持</h3>
+            <p id="contact_desc" style="margin: 16px 0;">提供编码器、位移/称重传感器的选型建议、替代方案及报价。24小时内响应。</p>
+            <p><i class="fas fa-envelope"></i> <strong>84279316@qq.com</strong></p>
+            <p><i class="fas fa-phone-alt"></i> <strong>13632615269</strong></p>
+            <p><i class="fab fa-weixin"></i> 微信同号，欢迎咨询</p>
+            <p style="margin-top: 20px;"><i class="fas fa-check-circle"></i> 原厂直购 | 可追溯渠道 | 质保18个月</p>
+        </div>
+        <div class="contact-form-box">
+            <h3 id="form_title">快速询价 / 选型请求</h3>
+            <form id="inquiryForm">
+                <div class="form-group"><input type="text" placeholder="姓名 / 公司" id="nameInput" required></div>
+                <div class="form-group"><input type="email" placeholder="邮箱 *" id="emailInput" required></div>
+                <div class="form-group"><input type="text" placeholder="产品类型 / 型号需求" id="partInput"></div>
+                <div class="form-group"><textarea rows="3" placeholder="量程、精度、输出信号等详细要求" id="msgInput"></textarea></div>
+                <button type="submit" class="submit-btn" id="submitBtnText">发送询价</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div><strong>SENSOTECH</strong><br>编码器·位移·称重传感器专家</div>
+        <div>📧 84279316@qq.com<br>📞 13632615269</div>
+        <div>中 | EN | RU 三语技术支持<br>深圳·莫斯科·法兰克福</div>
+    </div>
+</footer>
+
+<script>
+    // ---------- 产品数据库 (编码器、位移传感器、称重传感器) ----------
+    const productDB = {
+        encoder: [
+            { id: "enc1", name: "增量式编码器", sku: "E6B2-CWZ6C", spec: "分辨率600P/R, 5-24V", price: "¥询价", img: "https://picsum.photos/id/1/400/300", cat: "encoder" },
+            { id: "enc2", name: "绝对式编码器", sku: "AHS36B", spec: "多圈, SSI接口, 精度±0.02°", price: "¥询价", img: "https://picsum.photos/id/2/400/300", cat: "encoder" },
+            { id: "enc3", name: "空心轴编码器", sku: "HEDSS HKT", spec: "孔径15mm, 推挽输出", price: "¥询价", img: "https://picsum.photos/id/3/400/300", cat: "encoder" },
+            { id: "enc4", name: "防爆编码器", sku: "EX-ENC58", spec: "Ex d IIC, 高防护等级", price: "¥询价", img: "https://picsum.photos/id/4/400/300", cat: "encoder" }
+        ],
+        displacement: [
+            { id: "dis1", name: "磁致伸缩位移传感器", sku: "LWH-0150", spec: "量程150mm, 4-20mA输出", price: "¥询价", img: "https://picsum.photos/id/5/400/300", cat: "displacement" },
+            { id: "dis2", name: "激光位移传感器", sku: "HG-C1030", spec: "±10mm, 精度5μm", price: "¥询价", img: "https://picsum.photos/id/6/400/300", cat: "displacement" },
+            { id: "dis3", name: "拉线式位移传感器", sku: "WPS-1000", spec: "量程1000mm, 电位器输出", price: "¥询价", img: "https://picsum.photos/id/7/400/300", cat: "displacement" },
+            { id: "dis4", name: "LVDT位移传感器", sku: "HR 100", spec: "±25mm, 高线性度", price: "¥询价", img: "https://picsum.photos/id/8/400/300", cat: "displacement" }
+        ],
+        loadcell: [
+            { id: "load1", name: "S型称重传感器", sku: "SBS-500", spec: "500kg, 不锈钢, 2mV/V", price: "¥询价", img: "https://picsum.photos/id/9/400/300", cat: "loadcell" },
+            { id: "load2", name: "轮辐式称重传感器", sku: "LTH-2t", spec: "2吨, 合金钢, 防护IP67", price: "¥询价", img: "https://picsum.photos/id/10/400/300", cat: "loadcell" },
+            { id: "load3", name: "单点式称重传感器", sku: "SP-100kg", spec: "100kg, 铝制, 用于平台秤", price: "¥询价", img: "https://picsum.photos/id/11/400/300", cat: "loadcell" },
+            { id: "load4", name: "轴销式称重传感器", sku: "CZL-301", spec: "1t, 不锈钢, 用于吊钩秤", price: "¥询价", img: "https://picsum.photos/id/12/400/300", cat: "loadcell" }
+        ]
+    };
+    let allProducts = [...productDB.encoder, ...productDB.displacement, ...productDB.loadcell];
+    
+    // 多语言资源
+    const translations = {
+        zh: {
+            hero_title: "高精度编码器 & 传感器<br>工业自动化核心部件",
+            hero_desc: "专业供应增量/绝对式编码器、磁致伸缩位移传感器、高精度称重传感器。欧美原厂直购，提供选型支持与快速报价。",
+            quote_btn: "获取报价",
+            catalog_btn: "技术资料",
+            nav_home: "首页", nav_encoder: "编码器", nav_displacement: "位移传感器", nav_loadcell: "称重传感器", nav_contact: "联系我们",
+            adv_title: "为什么选择我们",
+            advantages: [
+                { icon: "fa-certificate", title: "原装正品", desc: "编码器/传感器100%原厂渠道，可追溯" },
+                { icon: "fa-chart-line", title: "精度保障", desc: "提供计量证书，精度符合国际标准" },
+                { icon: "fa-bolt", title: "快速响应", desc: "选型咨询30分钟响应，现货快速交付" },
+                { icon: "fa-handshake", title: "技术支持", desc: "专业工程师提供选型替代方案" }
+            ],
+            contact_title: "📞 获取专业选型支持",
+            contact_desc: "提供编码器、位移/称重传感器的选型建议、替代方案及报价。24小时内响应。",
+            form_title: "快速询价 / 选型请求",
+            submit_text: "发送询价",
+            cat_all: "全部产品", cat_encoder: "编码器", cat_displacement: "位移传感器", cat_loadcell: "称重传感器"
+        },
+        en: {
+            hero_title: "High-Precision Encoders & Sensors<br>Core Components for Industrial Automation",
+            hero_desc: "Specializing in incremental/absolute encoders, magnetostrictive displacement sensors, and high-precision load cells. Direct sourcing from EU/US. Technical support & fast quotes.",
+            quote_btn: "Request Quote",
+            catalog_btn: "Tech Data",
+            nav_home: "Home", nav_encoder: "Encoders", nav_displacement: "Displacement", nav_loadcell: "Load Cells", nav_contact: "Contact",
+            adv_title: "Why Choose Us",
+            advantages: [
+                { icon: "fa-certificate", title: "100% Genuine", desc: "Original components with full traceability" },
+                { icon: "fa-chart-line", title: "High Accuracy", desc: "Calibration certificates, meet international standards" },
+                { icon: "fa-bolt", title: "Fast Response", desc: "30min selection support, quick delivery" },
+                { icon: "fa-handshake", title: "Technical Support", desc: "Engineers assist with selection & alternatives" }
+            ],
+            contact_title: "📞 Get Professional Support",
+            contact_desc: "Selection advice, alternatives, and quotes for encoders, displacement, and load cells. Reply within 24h.",
+            form_title: "Quick Inquiry / Request",
+            submit_text: "Send Inquiry",
+            cat_all: "All Products", cat_encoder: "Encoders", cat_displacement: "Displacement Sensors", cat_loadcell: "Load Cells"
+        },
+        ru: {
+            hero_title: "Высокоточные энкодеры и датчики<br>Ключевые компоненты автоматизации",
+            hero_desc: "Инкрементальные/абсолютные энкодеры, магнитострикционные датчики перемещения, тензодатчики. Прямые поставки из Европы и США. Подбор и быстрые котировки.",
+            quote_btn: "Запросить цену",
+            catalog_btn: "Технические данные",
+            nav_home: "Главная", nav_encoder: "Энкодеры", nav_displacement: "Датчики перемещения", nav_loadcell: "Тензодатчики", nav_contact: "Контакты",
+            adv_title: "Почему выбирают нас",
+            advantages: [
+                { icon: "fa-certificate", title: "Оригинал", desc: "100% подлинность, полная прослеживаемость" },
+                { icon: "fa-chart-line", title: "Высокая точность", desc: "Сертификаты калибровки, соответствие стандартам" },
+                { icon: "fa-bolt", title: "Быстрый отклик", desc: "Подбор за 30 минут, быстрая доставка" },
+                { icon: "fa-handshake", title: "Техподдержка", desc: "Инженерная помощь в подборе аналогов" }
+            ],
+            contact_title: "📞 Получите профессиональную поддержку",
+            contact_desc: "Советы по выбору, аналоги и цены на энкодеры, датчики перемещения, тензодатчики. Ответ в течение 24 часов.",
+            form_title: "Быстрый запрос",
+            submit_text: "Отправить запрос",
+            cat_all: "Все товары", cat_encoder: "Энкодеры", cat_displacement: "Датчики перемещения", cat_loadcell: "Тензодатчики"
+        }
+    };
+    
+    let currentLang = 'zh';
+    let currentCategory = 'all';
+    
+    function renderProducts() {
+        let filtered = currentCategory === 'all' ? allProducts : allProducts.filter(p => p.cat === currentCategory);
+        const container = document.getElementById('productsGrid');
+        if(!container) return;
+        container.innerHTML = filtered.map(p => `
+            <div class="product-card">
+                <img class="product-img" src="${p.img}" alt="${p.name}" loading="lazy">
+                <div class="product-info">
+                    <h4>${escapeHtml(p.name)}</h4>
+                    <div class="product-spec">${p.sku} | ${p.spec}</div>
+                    <div class="product-price">${p.price}</div>
+                    <button class="btn-sm quick-quote" data-product="${p.name} (${p.sku})">${translations[currentLang].quote_btn}</button>
+                </div>
+            </div>
+        `).join('');
+        // 重新绑定询价按钮
+        document.querySelectorAll('.quick-quote').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const prod = btn.getAttribute('data-product');
+                const partInput = document.getElementById('partInput');
+                if(partInput) partInput.value = prod;
+                document.getElementById('inquiryForm').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    }
+    
+    function updateLanguage(lang) {
+        currentLang = lang;
+        const t = translations[lang];
+        document.getElementById('hero_title').innerHTML = t.hero_title;
+        document.getElementById('hero_desc').innerText = t.hero_desc;
+        document.getElementById('quote_btn_text').innerText = t.quote_btn;
+        document.getElementById('catalog_btn_text').innerText = t.catalog_btn;
+        document.querySelectorAll('[data-key]').forEach(el => {
+            const key = el.getAttribute('data-key');
+            if(t[key]) el.innerText = t[key];
+        });
+        document.getElementById('adv_title').innerText = t.adv_title;
+        document.getElementById('contact_title').innerHTML = t.contact_title;
+        document.getElementById('contact_desc').innerText = t.contact_desc;
+        document.getElementById('form_title').innerHTML = t.form_title;
+        document.getElementById('submitBtnText').innerText = t.submit_text;
+        
+        // 分类按钮文字更新
+        document.getElementById('catAll').innerText = t.cat_all;
+        document.getElementById('catEncoder').innerText = t.cat_encoder;
+        document.getElementById('catDisplacement').innerText = t.cat_displacement;
+        document.getElementById('catLoadcell').innerText = t.cat_loadcell;
+        
+        // 优势区域
+        const advGrid = document.getElementById('advantagesGrid');
+        advGrid.innerHTML = t.advantages.map(adv => `
+            <div class="adv-item">
+                <div class="adv-icon"><i class="fas ${adv.icon}"></i></div>
+                <h4>${adv.title}</h4>
+                <p>${adv.desc}</p>
+            </div>
+        `).join('');
+        
+        renderProducts(); // 重新渲染产品列表（价格文字等根据语言不变，但按钮文字会变）
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            if(btn.getAttribute('data-lang') === lang) btn.classList.add('active');
+            else btn.classList.remove('active');
+        });
+    }
+    
+    function escapeHtml(str) { return str.replace(/[&<>]/g, m => m==='&'?'&amp;':m==='<'?'&lt;':'&gt;'); }
+    
+    // 分类切换
+    function setCategory(cat) {
+        currentCategory = cat;
+        renderProducts();
+        document.querySelectorAll('.cat-btn').forEach(btn => {
+            if(btn.getAttribute('data-cat') === cat) btn.classList.add('active');
+            else btn.classList.remove('active');
+        });
+    }
+    
+    // 询价表单提交
+    const inquiryForm = document.getElementById('inquiryForm');
+    inquiryForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('nameInput').value.trim();
+        const email = document.getElementById('emailInput').value.trim();
+        const part = document.getElementById('partInput').value;
+        const msg = document.getElementById('msgInput').value;
+        if(!name || !email) {
+            alert(currentLang === 'zh' ? '请填写姓名和邮箱' : (currentLang === 'en' ? 'Please fill name and email' : 'Укажите имя и email'));
+            return;
+        }
+        const subject = `询价来自 ${name} - 编码器/传感器`;
+        const body = `姓名: ${name}\n邮箱: ${email}\n产品/型号: ${part}\n详细需求: ${msg}\n电话: 13632615269`;
+        window.location.href = `mailto:84279316@qq.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        alert(currentLang === 'zh' ? '询价已发送，我们将尽快回复！' : (currentLang === 'en' ? 'Inquiry sent! We will reply soon.' : 'Запрос отправлен! Мы ответим в ближайшее время.'));
+        inquiryForm.reset();
+    });
+    
+    // 事件绑定
+    document.getElementById('quoteBtn').addEventListener('click', () => {
+        document.querySelector('.contact-section').scrollIntoView({ behavior: 'smooth' });
+    });
+    document.getElementById('catalogBtn').addEventListener('click', () => {
+        alert(currentLang === 'zh' ? '技术资料手册已发送至邮箱，请联系客服获取。' : (currentLang === 'en' ? 'Technical data sheet will be sent via email, please contact us.' : 'Техническая документация будет отправлена на email.'));
+    });
+    
+    document.getElementById('catAll').addEventListener('click', () => setCategory('all'));
+    document.getElementById('catEncoder').addEventListener('click', () => setCategory('encoder'));
+    document.getElementById('catDisplacement').addEventListener('click', () => setCategory('displacement'));
+    document.getElementById('catLoadcell').addEventListener('click', () => setCategory('loadcell'));
+    
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => updateLanguage(btn.getAttribute('data-lang')));
+    });
+    
+    // 初始化
+    updateLanguage('zh');
+    setCategory('all');
+</script>
+</body>
+</html>
